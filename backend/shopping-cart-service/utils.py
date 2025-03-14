@@ -16,7 +16,7 @@ def get_product_from_external_service(product_id):
     """
     Call product API to retrieve product details
     """
-    response = requests.get(product_service_url + f"/product/{product_id}")
+    response = requests.get(product_service_url + f"/product/{product_id}", timeout=60)
     try:
         response_dict = response.json()["product"]
     except KeyError:
